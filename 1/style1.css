@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.clock-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto 40px;
+}
+
+/* Основание часов */
+.clock-face {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #2d3047 0%, #1c1e2e 100%);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 
+        0 0 40px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(0, 0, 0, 0.6),
+        0 0 0 15px #0c0e1a,
+        0 0 0 18px #2a2d44,
+        0 0 0 22px #0c0e1a;
+}
+
+/* Центр часов */
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00eeff 0%, #0066ff 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 15px #00eeff, 0 0 30px #00eeff;
+}
+
+/* Часовая стрелка */
+.hour-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 100px;
+    background: linear-gradient(to top, transparent 10%, #00eeff 30%, #0066ff 100%);
+    border-radius: 8px 8px 0 0;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0, 238, 255, 0.8);
+    
+    /* Анимация: 1 оборот за 30 секунд */
+    animation: rotateHour 30s linear infinite;
+}
+
+/* Минутная стрелка */
+.minute-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 140px;
+    background: linear-gradient(to top, transparent 10%, #ff3366 30%, #cc0044 100%);
+    border-radius: 6px 6px 0 0;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(90deg);
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.8);
+    
+    /* Анимация: 1 оборот за 5 секунд */
+    animation: rotateMinute 5s linear infinite;
+}
+
+/* Секундная стрелка */
+.second-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 160px;
+    background: linear-gradient(to top, transparent 10%, #ffcc00 30%, #ff9900 100%);
+    border-radius: 4px 4px 0 0;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(180deg);
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+    
+    /* Анимация: 1 оборот за 1 секунду */
+    animation: rotateSecond 1s linear infinite;
+}
+
+
+/* Цифры на часах */
+.numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial Black', 'Arial', sans-serif;
+    font-weight: bold;
+    color: #00eeff;
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.9);
+    z-index: 5; 
+}
+
+.number {
+    position: absolute;
+    font-size: 28px;
+    transform: translate(-50%, -50%);
+}
+
+.number-12 { top: 12%; left: 50%; }
+.number-1 { top: 18%; left: 77%; }
+.number-2 { top: 32%; left: 92%; }
+.number-3 { top: 50%; left: 97%; }
+.number-4 { top: 68%; left: 92%; }
+.number-5 { top: 82%; left: 77%; }
+.number-6 { top: 88%; left: 50%; }
+.number-7 { top: 82%; left: 23%; }
+.number-8 { top: 68%; left: 8%; }
+.number-9 { top: 50%; left: 3%; }
+.number-10 { top: 32%; left: 8%; }
+.number-11 { top: 18%; left: 23%; }
+
+/* Анимации вращения */
+@keyframes rotateHour {
+    0% { transform: translate(-50%, -100%) rotate(0deg); }
+    100% { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+@keyframes rotateMinute {
+    0% { transform: translate(-50%, -100%) rotate(90deg); }
+    100% { transform: translate(-50%, -100%) rotate(450deg); }
+}
+
+@keyframes rotateSecond {
+    0% { transform: translate(-50%, -100%) rotate(180deg); }
+    100% { transform: translate(-50%, -100%) rotate(540deg); }
+}
+
+/* Информационная панель */
+.info-panel {
+    background: rgba(10, 12, 28, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 2px solid rgba(0, 238, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-panel h2 {
+    color: #00eeff;
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 24px;
+    text-shadow: 0 0 5px rgba(0, 238, 255, 0.7);
+}
+
+.info-panel p {
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: #b0b0d0;
+    font-size: 18px;
+}
+
+.highlight {
+    color: #ffcc00;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.7);
+}
+
+.speed-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    background: rgba(0, 20, 40, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 238, 255, 0.3);
+}
+
+.speed-item {
+    text-align: center;
+}
+
+.speed-item h3 {
+    color: #ffcc00;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.speed-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00eeff;
+    text-shadow: 0 0 8px rgba(0, 238, 255, 0.9);
+}
+
+/* Мерцание для эффекта движения */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
+}
+
+.hour-hand {
+    animation: rotateHour 30s linear infinite, pulse 2s ease-in-out infinite;
+}
+
+.minute-hand {
+    animation: rotateMinute 5s linear infinite, pulse 0.8s ease-in-out infinite;
+}
+
+.second-hand {
+    animation: rotateSecond 1s linear infinite, pulse 0.3s ease-in-out infinite;
+}
+
+.speed-note {
+    margin-top: 20px;
+    text-align: center;
+    color: #ff6666;
+    font-weight: bold;
+}

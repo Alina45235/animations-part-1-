@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимированные часы - ускоренные стрелки</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>АНИМИРОВАННЫЕ ЧАСЫ С УСКОРЕННЫМИ СТРЕЛКАМИ</h1>
+        
+        <div class="clock-container">
+            <div class="clock-face">        
+                <!-- Цифры на часах -->
+                <div class="numbers">
+                    <div class="number number-12">XII</div>
+                    <div class="number number-1">I</div>
+                    <div class="number number-2">II</div>
+                    <div class="number number-3">III</div>
+                    <div class="number number-4">IV</div>
+                    <div class="number number-5">V</div>
+                    <div class="number number-6">VI</div>
+                    <div class="number number-7">VII</div>
+                    <div class="number number-8">VIII</div>
+                    <div class="number number-9">IX</div>
+                    <div class="number number-10">X</div>
+                    <div class="number number-11">XI</div>
+                </div>
+                
+                <!-- Стрелки часов -->
+                <div class="hour-hand"></div>
+                <div class="minute-hand"></div>
+                <div class="second-hand"></div>
+                
+                <!-- Центральная точка -->
+                <div class="center-dot"></div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h2>КОМПОНОВКА ЧАСОВ И СКОРОСТИ СТРЕЛОК</h2>
+            <p><span class="highlight">Основа часов</span> - круг с радиальным градиентом, объемными тенями и тройной обводкой.</p>
+            <p><span class="highlight">Циферблат</span> - римские цифры, позиционированные по кругу.</p>
+            <p><span class="highlight">Стрелки</span> - созданы из прямоугольных элементов с градиентом и эффектом свечения:</p>
+            
+            <div class="speed-info">
+                <div class="speed-item">
+                    <h3>ЧАСОВАЯ</h3>
+                    <div class="speed-value">30 сек</div>
+                    <p>1 полный оборот</p>
+                </div>
+                <div class="speed-item">
+                    <h3>МИНУТНАЯ</h3>
+                    <div class="speed-value">5 сек</div>
+                    <p>1 полный оборот</p>
+                </div>
+                <div class="speed-item">
+                    <h3>СЕКУНДНАЯ</h3>
+                    <div class="speed-value">1 сек</div>
+                    <p>1 полный оборот</p>
+                </div>
+            </div>
+            
+            <p class="speed-note">
+                Минутная стрелка движется в 6 раз быстрее часовой!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
