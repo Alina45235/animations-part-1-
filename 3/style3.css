@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.blocks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.block {
+    display: flex;
+    height: 250px; 
+    background: white;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.block:hover {
+    transform: translateY(-5px);
+}
+
+/* ОБЩИЕ СТИЛИ ДЛЯ ТЕКСТОВОЙ И КАРТИНОЧНОЙ ЧАСТЕЙ */
+.text-part, .image-part {
+    width: 50%; 
+    position: relative;
+}
+
+/* ТЕКСТОВАЯ ЧАСТЬ */
+.text-part {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    padding: 30px;
+    background: #fff;
+    order: 1; 
+}
+
+/* КАРТИНОЧНАЯ ЧАСТЬ */
+.image-part {
+    position: relative;
+    overflow: hidden; 
+    background: #f8f9fa;
+    order: 2; 
+}
+
+/* ДЛЯ ВТОРОГО БЛОКА МЕНЯЕМ ПОРЯДОК */
+.block.reverse .text-part {
+    order: 2; 
+}
+
+.block.reverse .image-part {
+    order: 1; 
+}
+
+/* РАМКА ВОКРУГ КАРТИНОЧНОЙ ЧАСТИ */
+.image-part::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #e74c3c;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* РАМКА ДЛЯ КАРТИНКИ СПРАВА (обычный блок) */
+.image-part::before {
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}
+
+/* РАМКА ДЛЯ КАРТИНКИ СЛЕВА (reverse блок) */
+.block.reverse .image-part::before {
+    border-right: none;
+    border-left: 3px solid #e74c3c;
+    border-radius: 10px 0 0 10px;
+}
+
+.text-content {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.block-image {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+}
+
+/* АНИМАЦИЯ ЧЕРНОЙ ПЛАШКИ  */
+@keyframes overlayAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ПОЛУПРОЗРАЧНАЯ ЧЕРНАЯ ПЛАШКА НА ВЕСЬ БЛОК */
+.block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* АНИМАЦИЯ УВЕЛИЧЕНИЯ КАРТИНКИ */
+@keyframes zoomImage {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+/* АКТИВАЦИЯ АНИМАЦИЙ ПРИ НАВЕДЕНИИ */
+.block:hover::after {
+    animation: overlayAnimation 0.3s ease forwards;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.block:hover .block-image {
+    animation: zoomImage 1s ease forwards;
+}
+
+/* ЭФФЕКТ ДЛЯ ТЕКСТА ПРИ НАВЕДЕНИИ */
+.block:hover .text-content {
+    color: #fff;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 4;
+}
