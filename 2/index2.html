@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимированные створки</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Анимированные створки</h1>
+        <p class="subtitle">Наведите курсор на любую из створок</p>
+        
+        <div class="shutter-container">
+            <!-- Левая створка -->
+            <div class="shutter left-shutter">
+                <div class="shutter-front">
+                    <span class="shutter-number">1</span>
+                </div>
+            </div>
+            
+            <!-- Правая створка -->
+            <div class="shutter right-shutter">
+                <div class="shutter-front">
+                    <span class="shutter-number">2</span>
+                </div>
+            </div>
+            
+            <!-- Скрытый контент  -->
+            <div class="hidden-content">
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h2>HELLO</h2>
+                        <p>Это текст, который был скрыт за створками. Когда вы наводите курсор на любую из створок, они обе медленно открываются, и этот контент становится полностью видимым.</p>
+                        <p>При убирании курсора створки мгновенно закрываются.  Посмотрите на котика!</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="./img/cat.gif" alt="кот" class="content-image">
+                        <p class="image-caption">Кот</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
