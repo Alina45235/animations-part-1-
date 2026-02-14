@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* ШАПКА */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #00eeff;
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header h1 i {
+    color: #ffcc00;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #a0a0c0;
+    font-weight: 300;
+}
+
+/* ОСНОВНОЙ КОНТЕНТ */
+.main-content {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intro h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #b0b0d0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* СЕТКА ЗАДАНИЙ */
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.task-card {
+    background: rgba(30, 32, 48, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #00eeff, #ff3366);
+}
+
+.task-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 238, 255, 0.3);
+}
+
+.task-icon {
+    font-size: 3rem;
+    color: #00eeff;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.task-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+.task-description {
+    color: #a0a0c0;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.task-requirements {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.task-requirements h4 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-requirements ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.task-requirements li {
+    padding: 5px 0;
+    color: #b0b0d0;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.task-requirements li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00eeff;
+    font-weight: bold;
+}
+
+/* КНОПКИ ЗАДАНИЙ */
+.task-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #00eeff 0%, #0066ff 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 110, 255, 0.3);
+}
+
+.task-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 110, 255, 0.4);
+    background: linear-gradient(135deg, #00ccff 0%, #0055ff 100%);
+}
